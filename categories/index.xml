@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Categories on vguardiano&#39;s Blog</title>
+        <link>https://vguardiano.github.io/categories/</link>
+        <description>Recent content in Categories on vguardiano&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>pt-br</language>
+        <lastBuildDate>Sat, 30 Jul 2022 00:31:30 -0300</lastBuildDate><atom:link href="https://vguardiano.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Blog</title>
+        <link>https://vguardiano.github.io/categories/blog/</link>
+        <pubDate>Sat, 30 Jul 2022 00:31:30 -0300</pubDate>
+        
+        <guid>https://vguardiano.github.io/categories/blog/</guid>
+        <description>&lt;img src="https://www.webnode.com/pt/blog/files/2019/05/blogueiro-de-sucesso.png" alt="Featured image of post Blog" /&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
