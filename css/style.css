@@ -1,0 +1,94 @@
+/* Reseta o básico e define as fontes */
+body {
+    font-family: 'Lato', sans-serif; /* Fonte limpa para o corpo */
+    line-height: 1.6;
+    background-color: #fdfdfd; /* Um branco levemente "quente" */
+    color: #333; /* Cor principal do texto, não preto puro */
+    margin: 0;
+    padding: 0;
+}
+
+/* Centraliza o conteúdo principal com um limite de largura para melhor leitura */
+.content, .header, .navigation, .footer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Merriweather', serif; /* Fonte com serifa para títulos */
+    color: #111;
+}
+
+/* Estilo do cabeçalho */
+.header {
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.header p {
+    margin: 0;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+/* Menu de navegação */
+.navigation {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #007bff; /* Cor de destaque para links */
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.navigation a:hover {
+    text-decoration: underline;
+}
+
+/* Seções e artigos */
+section {
+    margin-top: 40px;
+}
+
+.post-item {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 20px;
+}
+
+.post-item h3 {
+    margin-top: 0;
+}
+
+.post-item a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.post-item a:hover {
+    text-decoration: underline;
+}
+
+/* Rodapé */
+.footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid #eee;
+    color: #777;
+    font-size: 0.9rem;
+}
