@@ -1,3 +1,28 @@
+const CONFIGURACAO = {
+    // Informações que aparecem no cabeçalho da página inicial
+    pagina_inicial: {
+        titulo: "Vinícius Guardiano Souza",
+        subtitulo: "Doutorando em Matemática na Universidade Federal de Alagoas",
+    },
+
+    // Informações para a página "Sobre Mim"
+    sobre: {
+        titulo: "Olá! Eu sou o Vinícius.",
+        nome_arquivo_foto: "foto.jpg",
+        descricao_foto: "Foto de perfil de Vinícius Guardiano",
+        texto_perfil: `
+            <p>Nascido e criado em Maceió, Alagoas, sou um entusiasta de matemática, tecnologia e um bom café. Quando não estou imerso em provas e demonstrações, gosto de explorar a fotografia, ler ficção científica e descobrir novas bandas de rock progressivo.</p>
+            <p>Este site é meu cantinho na internet para organizar e compartilhar um pouco da minha jornada acadêmica.</p>
+        `
+    },
+
+    // Texto que aparece no rodapé de todas as páginas
+    rodape: {
+        nome_autor: "Vinícius Guardiano Souza"
+    }
+};
+
+
 // ===================================================
 //      BLOCO DE CONTEÚDO: NOTAS DE ESTUDO
 // ===================================================

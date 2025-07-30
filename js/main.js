@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const navContainer = document.querySelector('.navigation');
     const mainContainer = document.querySelector('.content');
 
+    // --- Preenche o cabeçalho dinamicamente ---
+    const headerTitle = document.querySelector('.header h1');
+    const headerSubtitle = document.querySelector('.header p');
+    if(headerTitle) headerTitle.textContent = CONFIGURACAO.pagina_inicial.titulo;
+    if(headerSubtitle) headerSubtitle.textContent = CONFIGURACAO.pagina_inicial.subtitulo;
+    
+
+
     // --- Itera sobre a lista mestra de seções do conteudo.js ---
     todasAsSecoes.forEach(secao => {
         
@@ -16,7 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const navLink = document.createElement('a');
         navLink.href = `#${secao.id}`;
         navLink.textContent = secao.titulo;
-        navContainer.appendChild(navLink);
+        navContainer.appendChild(navLink);// --- NOVO: Preenche o cabeçalho dinamicamente ---
+    const headerTitle = document.querySelector('.header h1');
+    const headerSubtitle = document.querySelector('.header p');
+    if(headerTitle) headerTitle.textContent = CONFIGURACAO.pagina_inicial.titulo;
+    if(headerSubtitle) headerSubtitle.textContent = CONFIGURACAO.pagina_inicial.subtitulo;
+    
 
         // --- 2. Gera a seção de conteúdo ---
 
