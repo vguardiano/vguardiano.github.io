@@ -80,9 +80,9 @@ section {
     transition: background-color 0.3s, border-color 0.3s;
 }
 
-/* section:last-child {
-    margin-bottom: 25px;
-}*/
+section:last-child {
+    margin-bottom: 0px;
+}
 
 main h2 {
     display: inline-block;
@@ -120,12 +120,12 @@ main h2 {
     text-decoration: underline;
 }
 
-
 .footer {
     display: flex; /* Ativa o Flexbox */
     justify-content: space-between; /* Coloca um item em cada ponta */
     align-items: center; /* Alinha verticalmente */
-    margin-top: 60px;
+    margin-top: 40px;
+    margin-bottom: 20px;
     padding-top: 20px;
     border-top: 1px solid var(--border-color);
     color: var(--text-color);
