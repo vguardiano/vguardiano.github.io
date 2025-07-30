@@ -1,25 +1,30 @@
+/* Reseta básico e define a rolagem suave para links de âncora (#) */
 html {
     scroll-behavior: smooth;
 }
 
+/* Definição das variáveis de cor para os temas claro e escuro */
 :root {
     --bg-color: #eeeeee;
     --text-color: #3d3d3d;
     --header-color: #2e3436;
-    --accent-color: #E66100;
-    --border-color: #9b9b9b9f;
+    --accent-color: #3584E4; /* Azul GNOME para o tema claro */
+    --border-color: #dcdcdc;
     --card-bg-color: #ffffff;
+    --contrast-color: #FF7800;
 }
 
 body.dark-theme {
     --bg-color: #242424;
     --text-color: #eeeeec;
     --header-color: #ffffff;
-    --accent-color: #78aeed;
-    --border-color: #4040405e;
-    --card-bg-color: #303030ab;
+    --accent-color: #78aeed; /* Azul mais claro para o tema escuro */
+    --border-color: #404040;
+    --card-bg-color: #303030;
+    --contrast-color: #FF7800; 
 }
 
+/* Estilos globais do corpo da página */
 body {
     font-family: 'Ubuntu', sans-serif;
     line-height: 1.7;
@@ -30,135 +35,125 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+/* Container principal para centralizar o conteúdo */
 .header, .navigation, .content, .footer {
     max-width: 800px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
+/* --- Cabeçalho --- */
 .header {
     text-align: center;
     padding-top: 40px;
     padding-bottom: 20px;
 }
+.header h1 { margin: 0; font-size: 2.8rem; color: var(--header-color); }
+.header p { margin: 0; font-size: 1.1rem; }
 
-.header h1 {
-    margin: 0;
-    font-size: 2.8rem;
-}
-
-.header p {
-    margin: 0;
-    font-size: 1.1rem;
-}
-
+/* --- Navegação --- */
 .navigation {
-    text-align: center;
-    padding: 10px;
-    /* padding-bottom: 30px; */
-    /* border-bottom: 1px solid var(--border-color); */
-    border-radius: 15px;
-    border: 1px solid var(--border-color);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
     transition: border-color 0.3s;
 }
-
 .navigation a {
     text-decoration: none;
-    color: var(--accent-color);
-    margin: 0 15px;
     font-weight: bold;
-    transition: color 0.3s;
+    transition: color 0.3s, background-color 0.3s;
+    padding: 6px 12px;
+    border-radius: 8px;
+    color: var(--accent-color);
+    background-color: color-mix(in srgb, var(--accent-color) 20%, transparent); /* Fundo com 20% da cor de destaque */
 }
-
 .navigation a:hover {
-    text-decoration: underline;
+    background-color: color-mix(in srgb, var(--accent-color) 35%, transparent);
+    text-decoration: none;
+}
+/* Estilo especial para o link "Sobre Mim" */
+#link-sobre {
+    color: var(--contrast-color);
+    background-color: color-mix(in srgb, var(--contrast-color) 20%, transparent);
+}
+#link-sobre:hover {
+    background-color: color-mix(in srgb, var(--contrast-color) 35%, transparent);
 }
 
-section {
-    margin-bottom: 40px;
-    padding: 15px 30px;
+
+/* --- Conteúdo Principal (Cards de Seção) --- */
+/* Seletor específico: aplica-se apenas a sections que são filhas diretas de .content */
+.content > section {
+    /* margin-bottom: 0px; */
+    padding: 25px 30px;
     background-color: var(--card-bg-color);
     border-radius: 15px;
     border: 1px solid var(--border-color);
     transition: background-color 0.3s, border-color 0.3s;
 }
-
-section:last-child {
-    margin-bottom: 0px;
-}
-
-main h2 {
+/* Seletor específico para o título DENTRO do card */
+.content > section > h2 {
     display: inline-block;
+    padding-bottom: 8px;
     margin-bottom: 25px;
-    border-bottom: 2px solid var(--accent-color);
-}
-
-.post-item {
-    margin-bottom: 20px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid var(--border-color);
-    transition: border-color 0.3s;
-}
-
-/* Remove a borda do último item para um visual mais limpo */
-.post-item:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.post-item h3 {
-    margin: 0px;
+    border-bottom: 3px solid var(--accent-color);
     color: var(--header-color);
 }
 
-.post-item a {
-    text-decoration: none;
-    font-weight: bold;
-    color: var(--accent-color);
-    transition: color 0.3s;
+.content > section:last-child {
+    margin-bottom: 35px;
 }
 
-.post-item a:hover {
-    text-decoration: underline;
-}
-
-.footer {
-    display: flex; /* Ativa o Flexbox */
-    justify-content: space-between; /* Coloca um item em cada ponta */
-    align-items: center; /* Alinha verticalmente */
-    margin-top: 40px;
+.post-item {
+    padding-bottom: 20px;
     margin-bottom: 20px;
-    padding-top: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+.post-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.post-item h3 { margin: 0; color: var(--header-color); }
+.post-item p { margin-top: 5px; margin-bottom: 0; }
+.post-item a { text-decoration: none; }
+.post-item a:hover h3 { text-decoration: underline; }
+
+
+/* --- Rodapé --- */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     border-top: 1px solid var(--border-color);
-    color: var(--text-color);
     font-size: 0.9rem;
-    transition: border-color 0.3s, color 0.3s;
 }
+.footer p { margin: 0; }
 
-.footer p {
-    margin: 0; /* Remove a margem padrão do parágrafo */
-}
-
-/* Estilo do botão de tema */
 #theme-toggle {
     background: none;
     border: none;
     cursor: pointer;
     padding: 5px;
-    border-radius: 50%; /* Deixa o fundo circular ao passar o mouse */
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
-/* Efeito visual ao passar o mouse ou focar no botão */
-#theme-toggle:hover {
-    background-color: var(--border-color);
+#theme-toggle:hover { 
+    background-color: var(--border-color); 
 }
 
-/* Estilo do ícone SVG dentro do botão */
-#theme-toggle svg {
-    width: 22px;
-    height: 22px;
-    fill: currentColor; /* O ícone terá a mesma cor do texto ao redor */
+#theme-toggle svg { 
+    width: 22px; 
+    height: 22px; 
+    fill: currentColor; 
 }

@@ -61,7 +61,7 @@ const secaoNotas = {
 const secaoArtigos = {
     // Metadados da seção inteira
     id: 'artigos',
-    titulo: 'Artigos e Publicações',
+    titulo: 'Publicações',
     ocultar: false,
 
     // Lista de itens dentro desta seção
@@ -124,7 +124,7 @@ const secaoProjetos = {
 const secaoApresentacoes = {
     id: 'apresentacoes',
     titulo: 'Apresentações e Seminários',
-    ocultar: false,
+    ocultar: true,
     items: [
         {
             ocultar: false,
@@ -148,7 +148,7 @@ const secaoApresentacoes = {
 const secaoFerramentas = {
     id: 'ferramentas',
     titulo: 'Linguagens e Ferramentas',
-    ocultar: false,
+    ocultar: true,
     items: [
         {
             ocultar: false,

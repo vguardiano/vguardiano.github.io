@@ -1,0 +1,66 @@
+/**
+ * ESTILOS EXCLUSIVOS DA PÁGINA SOBRE.HTML
+ * ---------------------------------------
+ * Graças aos seletores específicos no style.css, não precisamos mais
+ * sobrescrever regras aqui. Apenas adicionamos o que for novo.
+ */
+
+/* Ajusta o corpo para o posicionamento da seta de volta */
+body.sobre-page {
+    padding-top: 60px;
+}
+
+/* Estilo da seta de volta */
+.back-arrow {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: var(--text-color);
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+    z-index: 10;
+}
+
+.back-arrow:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Container do Perfil */
+.perfil-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.perfil-foto {
+    width: 250px;
+    height: 250px;
+    border-radius: 25px;
+    object-fit: cover;
+    /* border: 1px solid var(--accent-color); */
+}
+
+.perfil-texto p {
+    margin-bottom: 1em;
+}
+
+main {
+    margin-bottom: 15px;
+}
+
+/* Responsividade para o container do perfil em telas menores */
+@media (max-width: 600px) {
+    .perfil-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
