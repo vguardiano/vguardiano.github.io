@@ -1,14 +1,44 @@
-/* Reseta o básico e define as fontes */
-body {
-    font-family: 'Lato', sans-serif; /* Fonte limpa para o corpo */
-    line-height: 1.6;
-    background-color: #fdfdfd; /* Um branco levemente "quente" */
-    color: #333; /* Cor principal do texto, não preto puro */
-    margin: 0;
-    padding: 0;
+html {
+    scroll-behavior: smooth;
 }
 
-/* Centraliza o conteúdo principal com um limite de largura para melhor leitura */
+/* PALETA DE CORES GNOME (ADWAITA)
+   Cores claras e escuras definidas como variáveis CSS.
+*/
+
+:root {
+    /* Tema Claro (Padrão) */
+    --bg-color: #fafafa;         /* Fundo da janela */
+    --text-color: #3d3d3d;       /* Texto principal */
+    --header-color: #2e3436;     /* Títulos */
+    --accent-color: #FF7800;     /* Cor de destaque (azul GNOME) */
+    --border-color: #dcdcdc;     /* Cor das bordas sutis */
+    --card-bg-color: #ffffff;    /* Fundo de "cards" ou seções */
+}
+
+body.dark-theme {
+    /* Tema Escuro */
+    --bg-color: #242424;
+    --text-color: #eeeeec;
+    --header-color: #ffffff;
+    --accent-color: #FFA348;
+    --border-color: #40404067;
+    --card-bg-color: #30303067;
+}
+
+/* Estilos Globais */
+body {
+    font-family: 'Ubuntu', sans-serif; /* Fonte do Ubuntu */
+    line-height: 1.7;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+/* Centraliza o conteúdo principal */
 .content, .header, .navigation, .footer {
     max-width: 800px;
     margin: 0 auto;
@@ -16,8 +46,9 @@ body {
 }
 
 h1, h2, h3 {
-    font-family: 'Merriweather', serif; /* Fonte com serifa para títulos */
-    color: #111;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    color: var(--header-color);
 }
 
 /* Estilo do cabeçalho */
@@ -29,12 +60,11 @@ h1, h2, h3 {
 
 .header h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
 }
 
 .header p {
     margin: 0;
-    color: #555;
     font-size: 1.1rem;
 }
 
@@ -43,14 +73,16 @@ h1, h2, h3 {
     text-align: center;
     padding-top: 10px;
     padding-bottom: 30px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
+    transition: border-color 0.3s;
 }
 
 .navigation a {
     text-decoration: none;
-    color: #007bff; /* Cor de destaque para links */
+    color: var(--accent-color);
     margin: 0 15px;
     font-weight: bold;
+    transition: color 0.3s;
 }
 
 .navigation a:hover {
@@ -59,23 +91,35 @@ h1, h2, h3 {
 
 /* Seções e artigos */
 section {
-    margin-top: 40px;
+    margin-top: 40px; /* Mantém o espaçamento entre as seções */
+    padding: 25px 30px; /* Adiciona um respiro interno */
+    background-color: var(--card-bg-color); /* Aplica o fundo do card */
+    border-radius: 8px; /* Arredonda os cantos */
+    border: 1px solid var(--border-color); /* Adiciona uma borda sutil */
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .post-item {
     margin-bottom: 30px;
-    border-bottom: 1px solid #f0f0f0;
     padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    transition: border-color 0.3s;
+}
+
+.post-item:last-child {
+    border-bottom: none;
 }
 
 .post-item h3 {
     margin-top: 0;
+    color: var(--header-color);
 }
 
 .post-item a {
     text-decoration: none;
     font-weight: bold;
-    color: #007bff;
+    color: var(--accent-color);
+    transition: color 0.3s;
 }
 
 .post-item a:hover {
@@ -87,8 +131,16 @@ section {
     text-align: center;
     margin-top: 60px;
     padding-top: 20px;
-    padding-bottom: 20px;
-    border-top: 1px solid #eee;
-    color: #777;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-color);
     font-size: 0.9rem;
+    transition: border-color 0.3s, color 0.3s;
+}
+
+/* Título seção */
+main section h1 {
+    display: inline-block; /* Faz a borda ter a largura do texto, não da seção inteira */
+    padding-bottom: 5px;   /* Cria um espaço entre o texto e a linha */
+    margin-bottom: 25px;   /* Cria um espaço entre a linha e o primeiro item abaixo */
+    border-bottom: 3px solid var(--accent-color); /* A linha de destaque */
 }
