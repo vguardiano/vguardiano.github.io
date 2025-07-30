@@ -1,77 +1,130 @@
 // ===================================================
-//  ARQUIVO ÚNICO PARA GERENCIAR TODO O CONTEÚDO
+//      BLOCO DE CONTEÚDO: NOTAS DE ESTUDO
 // ===================================================
-// Instruções:
-// 1. Para ADICIONAR um item, copie um bloco `{...},` e cole no final da lista desejada.
-// 2. Para OCULTAR um item temporariamente, mude a linha `ocultar: false,` para `ocultar: true,`.
-// 3. Para REORDENAR, simplesmente recorte e cole o bloco na posição desejada.
-// 4. Altere os valores de `titulo`, `descricao` e `link` conforme necessário.
+const secaoNotas = {
+    // Metadados da seção inteira
+    id: 'notas',
+    titulo: 'Notas de Estudo',
+    ocultar: false, // Se true, esconde a seção inteira e o link do menu
 
-// --- NOTAS DE ESTUDO ---
-const notasDeEstudo = [
-    {
-        ocultar: false,
-        titulo: "Cálculo I - Resumo de Limites e Derivadas",
-        descricao: "Um guia consolidado sobre os principais conceitos de limites, continuidade e as regras de derivação, incluindo a regra da cadeia e derivação implícita.",
-        link: "https://github.com/vguardiano/vguardiano.github.io/raw/main/pdfs/exemplo.pdf" // Exemplo de link para um PDF no seu próprio repositório
-    },
-    {
-        ocultar: false,
-        titulo: "Estrutura de Dados I - Pilhas, Filas e Listas",
-        descricao: "Implementação e análise de estruturas de dados lineares. Inclui exemplos de código em pseudocódigo e diagramas de funcionamento.",
-        link: "#"
-    },
-    {
-        ocultar: false,
-        titulo: "Álgebra Linear - Espaços Vetoriais",
-        descricao: "Definição de espaços e subespaços vetoriais, combinação linear, dependência e independência linear. Notas de aula com exemplos resolvidos.",
-        link: "#"
-    },
-    {
-        ocultar: false,
-        titulo: "Sistemas Operacionais - Gerenciamento de Processos",
-        descricao: "Conceitos de processos, threads, escalonamento de CPU (FIFO, SJF, Round Robin) e comunicação entre processos (IPC).",
-        link: "#"
-    },
-    {
-        ocultar: true, // Este item não aparecerá no site
-        titulo: "Cálculo II - Integrais Múltiplas (Rascunho)",
-        descricao: "Notas iniciais sobre integrais duplas e triplas. Ainda em desenvolvimento.",
-        link: "#"
-    },
-    {
-        ocultar: false,
-        titulo: "Redes de Computadores - Modelo OSI vs TCP/IP",
-        descricao: "Um comparativo detalhado entre as camadas, protocolos e funcionalidades dos dois principais modelos de arquitetura de redes.",
-        link: "#"
-    }
-];
+    // Lista de itens dentro desta seção
+    items: [
+        {
+            ocultar: false, // Se true, esconde apenas este item
+            titulo: "Cálculo I - Resumo de Limites e Derivadas",
+            descricao: "Um guia consolidado sobre os principais conceitos de limites, continuidade e as regras de derivação, incluindo a regra da cadeia e derivação implícita.",
+            link: "#"
+        },
+        {
+            ocultar: false,
+            titulo: "Estrutura de Dados I - Pilhas, Filas e Listas",
+            descricao: "Implementação e análise de estruturas de dados lineares. Inclui exemplos de código em pseudocódigo e diagramas de funcionamento.",
+            link: "#"
+        },
+        {
+            ocultar: false,
+            titulo: "Banco de Dados - Normalização (1FN, 2FN, 3FN)",
+            descricao: "Guia prático para entender e aplicar as três primeiras Formas Normais para projetar bancos de dados relacionais eficientes e sem redundância.",
+            link: "#"
+        },
+        {
+            ocultar: false,
+            titulo: "Arquitetura de Computadores - Pipeline e Paralelismo",
+            descricao: "Notas sobre como a técnica de pipelining aumenta a performance de processadores e introdução aos conceitos de paralelismo de instrução.",
+            link: "#"
+        },
+        {
+            ocultar: false,
+            titulo: "Engenharia de Software - Padrões de Projeto (GoF)",
+            descricao: "Resumo dos padrões de projeto criacionais, estruturais e comportamentais mais comuns, como Singleton, Factory, Adapter e Observer.",
+            link: "#"
+        },
+        {
+            ocultar: true,
+            titulo: "Inteligência Artificial - Redes Neurais (Rascunho)",
+            descricao: "Este item está oculto, pois as notas ainda estão em fase de rascunho. Não aparecerá no site.",
+            link: "#"
+        },
+        {
+            ocultar: false,
+            titulo: "Sistemas Operacionais - Gerenciamento de Memória",
+            descricao: "Estudo sobre paginação, segmentação e memória virtual como técnicas para gerenciamento eficiente da memória principal.",
+            link: "#"
+        }
+    ]
+};
 
 
-// --- ARTIGOS E PUBLICAÇÕES ---
-const artigos = [
-    {
-        ocultar: false,
-        titulo: "Análise de Desempenho de Algoritmos de Ordenação em Diferentes Cenários",
-        descricao: "Um estudo comparativo entre Quicksort, Mergesort e Heapsort, avaliando o tempo de execução com datasets de tamanhos e ordenações variadas.",
-        link: "https://medium.com/@seu-usuario/link-para-artigo" // Exemplo de link para um post no Medium
-    },
-    // {
-    //     ocultar: false,
-    //     titulo: "Implementação de um Sistema de Cache Simples em Python",
-    //     descricao: "Artigo técnico demonstrando a criação de um cache LRU (Least Recently Used) do zero para otimização de consultas em aplicações web.",
-    //     link: "#"
-    // },
-    // {
-    //     ocultar: false,
-    //     titulo: "A Ética na Inteligência Artificial: Desafios e Perspectivas",
-    //     descricao: "Ensaio acadêmico sobre os dilemas éticos no desenvolvimento de I.A., abordando vieses algorítmicos e o impacto social.",
-    //     link: "https://www.linkedin.com/pulse/seu-artigo" // Exemplo de link para um artigo no LinkedIn
-    // },
-    // {
-    //     ocultar: true, // Artigo em revisão
-    //     titulo: "Visualização de Dados Geográficos com D3.js",
-    //     descricao: "Tutorial sobre como criar mapas interativos para a web utilizando a biblioteca D3.js e dados no formato GeoJSON.",
-    //     link: "#"
-    // }
+// ===================================================
+//      BLOCO DE CONTEÚDO: ARTIGOS (com links reais)
+// ===================================================
+const secaoArtigos = {
+    // Metadados da seção inteira
+    id: 'artigos',
+    titulo: 'Artigos e Publicações',
+    ocultar: false,
+
+    // Lista de itens dentro desta seção
+    items: [
+        {
+            ocultar: false,
+            titulo: "The Anatomy of a Large-Scale Hypertextual Web Search Engine",
+            descricao: "O paper original de Sergey Brin e Larry Page que descreve a arquitetura do Google e o algoritmo PageRank. Um marco na história da recuperação de informação.",
+            link: "http://infolab.stanford.edu/~backrub/google.html"
+        },
+        {
+            ocultar: false,
+            titulo: "Go To Statement Considered Harmful",
+            descricao: "VGS, M. Cavalcante, Inventiones (1992)",
+            link: "https://dl.acm.org/doi/10.1145/362929.362947"
+        },
+        {
+            ocultar: false,
+            titulo: "Inversion of Control Containers and the Dependency Injection pattern",
+            descricao: "Artigo seminal de Martin Fowler que popularizou e clarificou os conceitos de Inversão de Controle (IoC) e Injeção de Dependência (DI), fundamentais no desenvolvimento de software moderno.",
+            link: "https://www.martinfowler.com/articles/injection.html"
+        },
+        {
+            ocultar: false,
+            titulo: "On Computable Numbers, with an Application to the Entscheidungsproblem",
+            descricao: "O trabalho de Alan Turing de 1936 que introduziu as 'Máquinas de Turing', estabelecendo as fundações teóricas da ciência da computação e do que é 'computável'.",
+            link: "https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf"
+        },
+        {
+            ocultar: false,
+            titulo: "Site Reliability Engineering (SRE)",
+            descricao: "Introdução do Google à disciplina de SRE, que trata as operações de infraestrutura como um problema de engenharia de software, focando em automação e confiabilidade.",
+            link: "https://sre.google/sre-book/introduction/"
+        }
+    ]
+};
+
+
+// ===================================================
+//      BLOCO DE CONTEÚDO: PROJETOS (Exemplo)
+// ===================================================
+const secaoProjetos = {
+    id: 'projetos',
+    titulo: 'Projetos Pessoais',
+    ocultar: false, 
+    items: [
+        {
+            ocultar: false,
+            titulo: "Este mesmo site-portfólio",
+            descricao: "Desenvolvimento de um site pessoal e minimalista com HTML, CSS e JavaScript puros, com geração de conteúdo dinâmica. Hospedado no GitHub Pages.",
+            link: "https://github.com/vguardiano/vguardiano.github.io"
+        }
+    ]
+};
+
+
+// ===================================================
+//      LISTA MESTRA DE SEÇÕES
+// ===================================================
+// A ordem das seções aqui define a ordem no site.
+// Para remover uma seção, basta removê-la desta lista.
+const todasAsSecoes = [
+    secaoNotas,
+    secaoArtigos,
+    secaoProjetos
 ];

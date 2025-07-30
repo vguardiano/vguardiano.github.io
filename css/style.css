@@ -2,33 +2,26 @@ html {
     scroll-behavior: smooth;
 }
 
-/* PALETA DE CORES GNOME (ADWAITA)
-   Cores claras e escuras definidas como variáveis CSS.
-*/
-
 :root {
-    /* Tema Claro (Padrão) */
-    --bg-color: #fafafa;         /* Fundo da janela */
-    --text-color: #3d3d3d;       /* Texto principal */
-    --header-color: #2e3436;     /* Títulos */
-    --accent-color: #FF7800;     /* Cor de destaque (azul GNOME) */
-    --border-color: #dcdcdc;     /* Cor das bordas sutis */
-    --card-bg-color: #ffffff;    /* Fundo de "cards" ou seções */
+    --bg-color: #F6F5F4;
+    --text-color: #3d3d3d;
+    --header-color: #2e3436;
+    --accent-color: #E66100;
+    --border-color: #dcdcdc;
+    --card-bg-color: #ffffff;
 }
 
 body.dark-theme {
-    /* Tema Escuro */
     --bg-color: #242424;
     --text-color: #eeeeec;
     --header-color: #ffffff;
-    --accent-color: #FFA348;
-    --border-color: #40404067;
-    --card-bg-color: #30303067;
+    --accent-color: #78aeed;
+    --border-color: #4040405e;
+    --card-bg-color: #303030ab;
 }
 
-/* Estilos Globais */
 body {
-    font-family: 'Ubuntu', sans-serif; /* Fonte do Ubuntu */
+    font-family: 'Ubuntu', sans-serif;
     line-height: 1.7;
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -37,21 +30,11 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-
-/* Centraliza o conteúdo principal */
-.content, .header, .navigation, .footer {
+.header, .navigation, .content, .footer {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
 }
 
-h1, h2, h3 {
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: 700;
-    color: var(--header-color);
-}
-
-/* Estilo do cabeçalho */
 .header {
     text-align: center;
     padding-top: 40px;
@@ -68,12 +51,11 @@ h1, h2, h3 {
     font-size: 1.1rem;
 }
 
-/* Menu de navegação */
 .navigation {
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid var(--border-color);
+    padding: 0px;
+    /* padding-bottom: 30px; */
+    /* border-bottom: 1px solid var(--border-color); */
     transition: border-color 0.3s;
 }
 
@@ -89,29 +71,41 @@ h1, h2, h3 {
     text-decoration: underline;
 }
 
-/* Seções e artigos */
 section {
-    margin-top: 40px; /* Mantém o espaçamento entre as seções */
-    padding: 25px 30px; /* Adiciona um respiro interno */
-    background-color: var(--card-bg-color); /* Aplica o fundo do card */
-    border-radius: 8px; /* Arredonda os cantos */
-    border: 1px solid var(--border-color); /* Adiciona uma borda sutil */
+    margin-bottom: 40px;
+    padding: 15px 30px;
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
     transition: background-color 0.3s, border-color 0.3s;
 }
 
+/* section:last-child {
+    margin-bottom: 25px;
+}*/
+
+main h2 {
+    display: inline-block;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--accent-color);
+}
+
 .post-item {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
     border-bottom: 1px solid var(--border-color);
     transition: border-color 0.3s;
 }
 
+/* Remove a borda do último item para um visual mais limpo */
 .post-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
     border-bottom: none;
 }
 
 .post-item h3 {
-    margin-top: 0;
+    margin: 0px;
     color: var(--header-color);
 }
 
@@ -126,9 +120,11 @@ section {
     text-decoration: underline;
 }
 
-/* Rodapé */
+
 .footer {
-    text-align: center;
+    display: flex; /* Ativa o Flexbox */
+    justify-content: space-between; /* Coloca um item em cada ponta */
+    align-items: center; /* Alinha verticalmente */
     margin-top: 60px;
     padding-top: 20px;
     border-top: 1px solid var(--border-color);
@@ -137,10 +133,30 @@ section {
     transition: border-color 0.3s, color 0.3s;
 }
 
-/* Título seção */
-main section h1 {
-    display: inline-block; /* Faz a borda ter a largura do texto, não da seção inteira */
-    padding-bottom: 5px;   /* Cria um espaço entre o texto e a linha */
-    margin-bottom: 25px;   /* Cria um espaço entre a linha e o primeiro item abaixo */
-    border-bottom: 3px solid var(--accent-color); /* A linha de destaque */
+.footer p {
+    margin: 0; /* Remove a margem padrão do parágrafo */
+}
+
+/* Estilo do botão de tema */
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%; /* Deixa o fundo circular ao passar o mouse */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Efeito visual ao passar o mouse ou focar no botão */
+#theme-toggle:hover {
+    background-color: var(--border-color);
+}
+
+/* Estilo do ícone SVG dentro do botão */
+#theme-toggle svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor; /* O ícone terá a mesma cor do texto ao redor */
 }
