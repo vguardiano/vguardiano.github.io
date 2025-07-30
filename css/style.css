@@ -3,11 +3,11 @@ html {
 }
 
 :root {
-    --bg-color: #F6F5F4;
+    --bg-color: #eeeeee;
     --text-color: #3d3d3d;
     --header-color: #2e3436;
     --accent-color: #E66100;
-    --border-color: #dcdcdc;
+    --border-color: #9b9b9b9f;
     --card-bg-color: #ffffff;
 }
 
@@ -53,9 +53,11 @@ body {
 
 .navigation {
     text-align: center;
-    padding: 0px;
+    padding: 10px;
     /* padding-bottom: 30px; */
     /* border-bottom: 1px solid var(--border-color); */
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
     transition: border-color 0.3s;
 }
 

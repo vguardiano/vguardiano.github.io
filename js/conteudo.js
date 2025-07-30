@@ -75,7 +75,7 @@ const secaoArtigos = {
         {
             ocultar: false,
             titulo: "Go To Statement Considered Harmful",
-            descricao: "VGS, M. Cavalcante, Inventiones (1992)",
+            descricao: "A famosa carta de Edsger W. Dijkstra de 1968 que argumentou contra o uso excessivo do comando GOTO, influenciando a programação estruturada por décadas.",
             link: "https://dl.acm.org/doi/10.1145/362929.362947"
         },
         {
@@ -119,12 +119,74 @@ const secaoProjetos = {
 
 
 // ===================================================
+//      NOVO BLOCO: APRESENTAÇÕES E SEMINÁRIOS
+// ===================================================
+const secaoApresentacoes = {
+    id: 'apresentacoes',
+    titulo: 'Apresentações e Seminários',
+    ocultar: false,
+    items: [
+        {
+            ocultar: false,
+            titulo: "Introdução à Arquitetura de Microsserviços",
+            descricao: "Seminário apresentado para a disciplina de Sistemas Distribuídos, abordando os prós e contras do padrão de arquitetura de microsserviços em comparação com monólitos.",
+            link: "#" // Link para os slides
+        },
+        {
+            ocultar: false,
+            titulo: "Workshop: Versionamento com Git e GitHub",
+            descricao: "Workshop prático ministrado para calouros do curso, cobrindo os comandos básicos e o fluxo de trabalho essencial do Git.",
+            link: "#"
+        }
+    ]
+};
+
+
+// ===================================================
+//      NOVO BLOCO: LINGUAGENS E FERRAMENTAS
+// ===================================================
+const secaoFerramentas = {
+    id: 'ferramentas',
+    titulo: 'Linguagens e Ferramentas',
+    ocultar: false,
+    items: [
+        {
+            ocultar: false,
+            titulo: "Python",
+            descricao: "Utilizado para automação de scripts, desenvolvimento back-end com Flask e Django, e projetos de análise de dados com Pandas e NumPy.",
+            link: "https://www.python.org/"
+        },
+        {
+            ocultar: false,
+            titulo: "JavaScript & TypeScript",
+            descricao: "Desenvolvimento de aplicações front-end com React e back-end com Node.js. Ampla experiência com o ecossistema moderno (ES6+, npm, etc).",
+            link: "https://www.typescriptlang.org/"
+        },
+        {
+            ocultar: false,
+            titulo: "Docker, Git & Linux",
+            descricao: "Controle de versão com Git, criação de ambientes de desenvolvimento e produção com Docker, e proficiência no ambiente de linha de comando Linux.",
+            link: "https://www.docker.com/"
+        },
+        {
+            ocultar: false,
+            titulo: "SQL (PostgreSQL & MySQL)",
+            descricao: "Modelagem de bancos de dados relacionais, escrita de consultas complexas, e otimização de performance.",
+            link: "https://www.postgresql.org/"
+        }
+    ]
+};
+
+
+// ===================================================
 //      LISTA MESTRA DE SEÇÕES
 // ===================================================
 // A ordem das seções aqui define a ordem no site.
-// Para remover uma seção, basta removê-la desta lista.
+// Adicionei os novos blocos a esta lista.
 const todasAsSecoes = [
     secaoNotas,
     secaoArtigos,
-    secaoProjetos
+    secaoProjetos,
+    secaoApresentacoes,
+    secaoFerramentas
 ];

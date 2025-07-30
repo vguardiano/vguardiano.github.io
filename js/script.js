@@ -13,10 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // --- 1. Gera o link de navegação ---
-        /* const navLink = document.createElement('a');
+        const navLink = document.createElement('a');
         navLink.href = `#${secao.id}`;
         navLink.textContent = secao.titulo;
-        navContainer.appendChild(navLink); */
+        navContainer.appendChild(navLink);
 
         // --- 2. Gera a seção de conteúdo ---
 
@@ -92,6 +92,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Adiciona o listener de CLIQUE no botão
     themeToggleButton.addEventListener('click', toggleTheme);
+
+    // O atalho 'C' continua funcionando!
+    window.addEventListener('keydown', (event) => {
+        if (event.key.toLowerCase() === 'c') {
+            toggleTheme();
+        }
+    });
 
     // --- Define o tema inicial ao carregar a página ---
     const savedTheme = localStorage.getItem(themeKey);
