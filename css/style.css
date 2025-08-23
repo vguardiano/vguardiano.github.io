@@ -3,25 +3,32 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Definição das variáveis de cor para os temas claro e escuro */
+/* * ===================================================================
+ * VARIÁVEIS DE COR E TEMA (GNOME Adwaita Inspired)
+ * ===================================================================
+ * A paleta do tema claro foi ajustada para melhor legibilidade e 
+ * conforto visual.
+ */
 :root {
-    --bg-color: #eeeeee;
-    --text-color: #3d3d3d;
-    --header-color: #2e3436;
-    --accent-color: #3584E4; /* Azul GNOME para o tema claro */
-    --border-color: #dcdcdc;
-    --card-bg-color: #ffffff;
-    --contrast-color: #FF7800;
+    /* Tema Claro (Light Theme) */
+    --bg-color: #f6f5f4; /* Fundo mais suave que o branco puro */
+    --text-color: #3d3d3d; /* Texto escuro de alto contraste */
+    --header-color: #2e3436; /* Cor para títulos principais */
+    --accent-color: #3584e4; /* Azul padrão do Adwaita */
+    --border-color: #d8d8d6; /* Borda sutil */
+    --card-bg-color: #ffffff; /* Cards brancos para destaque */
+    --contrast-color: #e95420; /* Laranja para contraste (Ubuntu) */
 }
 
 body.dark-theme {
+    /* Tema Escuro (Dark Theme) */
     --bg-color: #242424;
     --text-color: #eeeeec;
     --header-color: #ffffff;
-    --accent-color: #78aeed; /* Azul mais claro para o tema escuro */
+    --accent-color: #78aeed; 
     --border-color: #404040;
     --card-bg-color: #303030;
-    --contrast-color: #FF7800; 
+    --contrast-color: #ff7800; 
 }
 
 /* Estilos globais do corpo da página */
@@ -50,8 +57,16 @@ body {
     padding-top: 40px;
     padding-bottom: 20px;
 }
-.header h1 { margin: 0; font-size: 2.8rem; color: var(--header-color); }
-.header p { margin: 0; font-size: 1.1rem; }
+.header h1 { 
+    margin: 0; 
+    font-size: 2.8rem; 
+    color: var(--header-color); 
+}
+
+.header p { 
+    margin: 0; 
+    font-size: 1.1rem; 
+}
 
 /* --- Navegação --- */
 .navigation {
@@ -70,43 +85,34 @@ body {
     padding: 6px 12px;
     border-radius: 8px;
     color: var(--accent-color);
-    background-color: color-mix(in srgb, var(--accent-color) 20%, transparent); /* Fundo com 20% da cor de destaque */
+    background-color: color-mix(in srgb, var(--accent-color) 15%, transparent);
 }
+
 .navigation a:hover {
-    background-color: color-mix(in srgb, var(--accent-color) 35%, transparent);
-    text-decoration: none;
+    background-color: color-mix(in srgb, var(--accent-color) 30%, transparent);
 }
-/* Estilo especial para o link "Sobre Mim" */
+
 #link-sobre {
     color: var(--contrast-color);
-    background-color: color-mix(in srgb, var(--contrast-color) 20%, transparent);
-}
-#link-sobre:hover {
-    background-color: color-mix(in srgb, var(--contrast-color) 35%, transparent);
+    background-color: color-mix(in srgb, var(--contrast-color) 15%, transparent);
 }
 
+#link-sobre:hover {
+    background-color: color-mix(in srgb, var(--contrast-color) 30%, transparent);
+}
 
 /* --- Conteúdo Principal (Cards de Seção) --- */
-/* Seletor específico: aplica-se apenas a sections que são filhas diretas de .content */
 .content > section {
-    /* margin-bottom: 0px; */
+    margin: 0px;
     padding: 25px 30px;
     background-color: var(--card-bg-color);
     border-radius: 15px;
     border: 1px solid var(--border-color);
     transition: background-color 0.3s, border-color 0.3s;
 }
-/* Seletor específico para o título DENTRO do card */
-.content > section > h2 {
-    display: inline-block;
-    padding-bottom: 8px;
-    margin-bottom: 25px;
-    border-bottom: 3px solid var(--accent-color);
-    color: var(--header-color);
-}
 
 .content > section:last-child {
-    margin-bottom: 35px;
+    margin-bottom: 1em;
 }
 
 .post-item {
@@ -114,16 +120,38 @@ body {
     margin-bottom: 20px;
     border-bottom: 1px solid var(--border-color);
 }
+
+.post-item p { 
+    margin-top: 0px; 
+    margin-bottom: 0; 
+}
+
+.post-item a {
+    text-decoration: none; 
+    color: var(--accent-color); 
+    padding: 0px;
+}
+
+.post-item h3 {
+    display: inline-block;
+    color: var(--header-color);
+    margin: 0px;
+}
+
+/* Estilo específico para o título de artigos BibTeX */
+.post-item .bibtex-title {
+    font-style: italic;
+    font-weight: bold;
+}
+.post-item a:hover .bibtex-title {
+    text-decoration: underline;
+}
+
 .post-item:last-child {
     border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
-.post-item h3 { margin: 0; color: var(--header-color); }
-.post-item p { margin-top: 5px; margin-bottom: 0; }
-.post-item a { text-decoration: none; }
-.post-item a:hover h3 { text-decoration: underline; }
-
 
 /* --- Rodapé --- */
 .footer {
@@ -131,12 +159,15 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-top: 0px;
-    padding-top: 15px;
+    padding-top: 1em;
     padding-bottom: 15px;
     border-top: 1px solid var(--border-color);
     font-size: 0.9rem;
 }
-.footer p { margin: 0; }
+
+.footer p { 
+    margin: 0px; 
+}
 
 #theme-toggle {
     background: none;
@@ -147,7 +178,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--text-color);
 }
+
 #theme-toggle:hover { 
     background-color: var(--border-color); 
 }
@@ -156,4 +189,66 @@ body {
     width: 22px; 
     height: 22px; 
     fill: currentColor; 
+}
+
+/* * ===================================================================
+ * ESTILOS DA PÁGINA "SOBRE" (Antes em sobre.css)
+ * ===================================================================
+ * Estas regras foram movidas de sobre.css para cá.
+ * Elas só se aplicam quando o body tem a classe 'sobre-page'.
+ */
+body.sobre-page {
+    padding-top: 60px; /* Espaço para a seta de voltar 'fixa' */
+}
+
+.back-arrow {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: var(--text-color);
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+    z-index: 10;
+}
+
+.back-arrow:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.perfil-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 40px auto 15px auto;
+    padding: 25px 30px;
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+}
+
+.perfil-foto {
+    width: 250px;
+    height: 250px;
+    border-radius: 25px;
+    object-fit: cover;
+}
+
+.perfil-texto p {
+    margin-bottom: 1em;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .perfil-container {
+        flex-direction: column;
+        text-align: center;
+    }
 }

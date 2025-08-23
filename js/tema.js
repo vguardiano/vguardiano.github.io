@@ -1,22 +1,23 @@
-// Script reutilizável para controle de tema (claro/escuro)
-
+// Script reutilizável para controle de tema (claro/escuro) e rodapé.
 document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const themeToggleButton = document.getElementById('theme-toggle');
     const themeKey = 'theme-preference';
     
     // --- Atualização do texto do rodapé ---
+    // Agora puxa o nome do autor do objeto de configuração para centralizar a informação.
     const footerText = document.getElementById('footer-text');
-    if (footerText) {
-        footerText.textContent = `© ${new Date().getFullYear()} - vguardiano`;
+    if (footerText && CONFIGURACAO && CONFIGURACAO.rodape && CONFIGURACAO.rodape.nome_autor) {
+        const currentYear = new Date().getFullYear();
+        footerText.textContent = `© ${currentYear} ${CONFIGURACAO.rodape.nome_autor}`;
     }
 
     // Se não houver um botão de tema nesta página, podemos parar aqui.
     if (!themeToggleButton) return;
 
-    // Ícones SVG
-    const sunIcon = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M17 12C17 14.7614 14.7614 17 12 17C9.23858 17 7 14.7614 7 12C7 9.23858 9.23858 7 12 7C14.7614 7 17 9.23858 17 12Z" fill="#ffffff"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V4C12.75 4.41421 12.4142 4.75 12 4.75C11.5858 4.75 11.25 4.41421 11.25 4V2C11.25 1.58579 11.5858 1.25 12 1.25ZM1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H4C4.41421 11.25 4.75 11.5858 4.75 12C4.75 12.4142 4.41421 12.75 4 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12ZM19.25 12C19.25 11.5858 19.5858 11.25 20 11.25H22C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H20C19.5858 12.75 19.25 12.4142 19.25 12ZM12 19.25C12.4142 19.25 12.75 19.5858 12.75 20V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V20C11.25 19.5858 11.5858 19.25 12 19.25Z" fill="#ffffff"></path> <g opacity="0.5"> <path d="M3.66919 3.7156C3.94869 3.4099 4.42309 3.38867 4.72879 3.66817L6.95081 5.69975C7.25651 5.97925 7.27774 6.45365 6.99824 6.75935C6.71874 7.06505 6.24434 7.08629 5.93865 6.80679L3.71663 4.7752C3.41093 4.4957 3.38969 4.0213 3.66919 3.7156Z" fill="#ffffff"></path> <path d="M20.3319 3.7156C20.6114 4.0213 20.5902 4.4957 20.2845 4.7752L18.0624 6.80679C17.7567 7.08629 17.2823 7.06505 17.0028 6.75935C16.7233 6.45365 16.7446 5.97925 17.0503 5.69975L19.2723 3.66817C19.578 3.38867 20.0524 3.4099 20.3319 3.7156Z" fill="#ffffff"></path> <path d="M17.0261 17.0247C17.319 16.7318 17.7938 16.7319 18.0867 17.0248L20.3087 19.2471C20.6016 19.54 20.6016 20.0148 20.3087 20.3077C20.0158 20.6006 19.5409 20.6006 19.248 20.3076L17.026 18.0854C16.7331 17.7924 16.7332 17.3176 17.0261 17.0247Z" fill="#ffffff"></path> <path d="M6.97521 17.0249C7.2681 17.3177 7.2681 17.7926 6.97521 18.0855L4.75299 20.3077C4.46009 20.6006 3.98522 20.6006 3.69233 20.3077C3.39943 20.0148 3.39943 19.54 3.69233 19.2471L5.91455 17.0248C6.20744 16.732 6.68232 16.732 6.97521 17.0249Z" fill="#ffffff"></path> </g> </g></svg>`;
-    const moonIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.37 5.51A7.35 7.35 0 0 0 9.1 7.5c0 4.08 3.32 7.4 7.4 7.4.68 0 1.35-.09 1.99-.27C17.45 17.19 14.93 19 12 19c-3.86 0-7-3.14-7-7 0-2.93 1.81-5.45 4.37-6.49zM12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.82.89-3.42 2.26-4.4C12.92 3.04 12.46 3 12 3z"/></svg>`;
+    // Ícones SVG para o botão de tema
+    const sunIcon = `<svg fill="#000000" height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g> <g> <g> <path d="M256.001,129.374c-69.823,0-126.627,56.805-126.627,126.626S186.179,382.626,256,382.626 c69.822,0.001,126.626-56.803,126.626-126.626C382.626,186.179,325.822,129.374,256.001,129.374z"/> <path d="M256,95.553c10.793,0,19.543-8.75,19.543-19.543V19.543C275.543,8.75,266.793,0,256,0 c-10.793,0-19.543,8.75-19.543,19.543V76.01C236.457,86.803,245.207,95.553,256,95.553z"/> <path d="M383.272,148.272c5,0,10.003-1.909,13.818-5.725l39.929-39.929c7.632-7.631,7.632-20.005,0-27.638 c-7.63-7.632-20.004-7.632-27.638,0l-39.929,39.927c-7.632,7.632-7.632,20.005,0,27.638 C373.269,146.363,378.271,148.272,383.272,148.272z"/> <path d="M492.457,236.457H435.99c-10.793,0-19.543,8.75-19.543,19.543c0,10.793,8.75,19.543,19.543,19.543h56.467 c10.793,0,19.543-8.75,19.543-19.543C512,245.207,503.251,236.457,492.457,236.457z"/> <path d="M397.091,369.453c-7.631-7.632-20.005-7.632-27.638,0c-7.632,7.632-7.632,20.005,0,27.638l39.929,39.927 c3.816,3.816,8.818,5.725,13.818,5.725c5,0,10.003-1.907,13.818-5.725c7.632-7.632,7.632-20.005,0-27.638L397.091,369.453z"/> <path d="M256,416.447c-10.793,0-19.543,8.75-19.543,19.543v56.467c0,10.793,8.75,19.543,19.543,19.543 c10.793,0,19.543-8.75,19.543-19.543V435.99C275.543,425.197,266.793,416.447,256,416.447z"/> <path d="M114.91,369.453l-39.929,39.929c-7.632,7.631-7.632,20.005,0,27.638c3.816,3.816,8.816,5.725,13.818,5.725 c5,0,10.003-1.909,13.818-5.725l39.929-39.927c7.632-7.632,7.632-20.005,0-27.638S122.542,361.821,114.91,369.453z"/> <path d="M95.553,256c0-10.793-8.75-19.543-19.543-19.543H19.543C8.75,236.457,0,245.207,0,256 c0,10.793,8.75,19.543,19.543,19.543H76.01C86.803,275.543,95.553,266.793,95.553,256z"/> <path d="M114.91,142.547c3.816,3.816,8.818,5.725,13.819,5.725c5,0,10.003-1.909,13.818-5.723c7.632-7.632,7.632-20.005,0-27.638 l-39.926-39.93c-7.632-7.632-20.005-7.631-27.638,0c-7.632,7.632-7.632,20.005,0,27.638L114.91,142.547z"/></g></g></g></svg>`
+    const moonIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.37 5.51A7.35 7.35 0 0 0 9.1 7.5c0 4.08 3.32 7.4 7.4 7.4.68 0 1.35-.09 1.99-.27C17.45 17.19 14.93 19 12 19c-3.86 0-7-3.14-7-7 0-2.93 1.81-5.45 4.37-6.49z"/></svg>`;
 
     const applyTheme = (theme) => {
         if (theme === 'dark') {
@@ -37,17 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     themeToggleButton.addEventListener('click', toggleTheme);
 
+    // Atalho 'c' para mudar o tema
     window.addEventListener('keydown', (event) => {
         if (event.key.toLowerCase() === 'c') {
             toggleTheme();
         }
     });
 
+    // Aplica o tema salvo ou o preferido pelo sistema ao carregar a página
     const savedTheme = localStorage.getItem(themeKey);
-    if (savedTheme) {
-        applyTheme(savedTheme);
-    } else {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        applyTheme(prefersDark ? 'dark' : 'light');
-    }
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
 });
